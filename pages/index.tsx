@@ -1,5 +1,4 @@
 import type { NextPage } from 'next'
-import { useState } from 'react'
 import { useTime } from 'react-timer-hook'
 
 const Home: NextPage = () => {
@@ -7,18 +6,24 @@ const Home: NextPage = () => {
 
   const work = minutes % 30 < 25
   const minusOne = seconds == 0 ? 0 : 1
-  const displayMin = work ? 25-minusOne - (minutes % 30) : 30 - minusOne - (minutes % 30)
+  const displayMin = work ? 25 - minusOne - (minutes % 30) : 30 - minusOne - (minutes % 30)
 
   const secondsLeft = (60 - seconds) % 60
   const displaySeconds = secondsLeft < 10 ? `0${secondsLeft}` : secondsLeft
 
-
   return (
-    <div className="content">
-      <div className="time">
-        {displayMin}:{displaySeconds}
+    <div
+      className="wholeScreen"
+      style={{
+        background: work ? 'rgb(66,70,169)' : '#EAFF7B',
+        color: work ? '#F3ECFF' : '#595959'
+      }}>
+      <div className="content">
+        <div className="time">
+          {displayMin}:{displaySeconds}
+        </div>
+        <div className="type">{work ? 'WORKING' : 'PAUSE'}</div>
       </div>
-      <div className="type">{work ? 'WORKING' : 'PAUSE'}</div>
     </div>
   )
 }
