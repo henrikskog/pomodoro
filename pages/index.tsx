@@ -1,8 +1,12 @@
 import type { NextPage } from 'next'
 import { useTime } from 'react-timer-hook'
+import useSound from 'use-sound';
+let previousWork = false
 
 const Home: NextPage = () => {
   const { minutes, seconds } = useTime({ format: '12-hour' })
+  const [play] = useSound('/sounds/pling.mp3');
+
 
   const work = minutes % 30 < 25
   const minusOne = seconds == 0 ? 0 : 1
@@ -11,17 +15,23 @@ const Home: NextPage = () => {
   const secondsLeft = (60 - seconds) % 60
   const displaySeconds = secondsLeft < 10 ? `0${secondsLeft}` : secondsLeft
 
+  if (work != previousWork) {
+    play()
+  }
+
+  previousWork = work
+
   return (
     <div
       className="wholeScreen"
       style={{
         background: work ? 'rgb(66,70,169)' : '#EAFF7B',
-        color: work ? '#F3ECFF' : '#595959'
+        color: work ? '#F3ECFF' : '#595959',
       }}>
       <div className="content">
-        <div className="time">
+        <p className="time">
           {displayMin}:{displaySeconds}
-        </div>
+        </p>
         <div className="type">{work ? 'WORKING' : 'PAUSE'}</div>
       </div>
     </div>
