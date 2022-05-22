@@ -14,3 +14,33 @@ a {
 * {
   box-sizing: border-box;
 }
+
+body {
+  display: flex;
+  place-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  background: rgb(66,70,169);
+}
+
+.content {
+  display: flex;
+  height: 20rem;
+  width: 20rem;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.time {
+  font-size: 8rem;
+  color: white;
+  text-align: center;
+}
+
+.type {
+  text-align: center;
+  font-size: 2rem;
+  color: #F3ECFF;
+
+}
