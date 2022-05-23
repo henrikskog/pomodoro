@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import type { NextPage } from 'next'
 import { useTime } from 'react-timer-hook'
 import useSound from 'use-sound';
@@ -6,6 +7,7 @@ let previousWork = false
 const Home: NextPage = () => {
   const { minutes, seconds } = useTime({ format: '12-hour' })
   const [play] = useSound('/sounds/pling.mp3');
+
 
 
   const work = minutes % 30 < 25
@@ -28,6 +30,9 @@ const Home: NextPage = () => {
         background: work ? 'rgb(66,70,169)' : '#EAFF7B',
         color: work ? '#F3ECFF' : '#595959',
       }}>
+        <Head>
+          <title>{work ? '🏋️': '🏖'} {displayMin}:{displaySeconds}</title>
+        </Head>
       <div className="content">
         <p className="time">
           {displayMin}:{displaySeconds}
