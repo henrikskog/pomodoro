@@ -2,7 +2,8 @@ import Head from 'next/head'
 import type { NextPage } from 'next'
 import { useTime } from 'react-timer-hook'
 import useSound from 'use-sound';
-let previousWork = false
+
+let previousWork: boolean | null = null
 
 const Home: NextPage = () => {
   const { minutes, seconds } = useTime({ format: '12-hour' })
@@ -17,7 +18,7 @@ const Home: NextPage = () => {
   const secondsLeft = (60 - seconds) % 60
   const displaySeconds = secondsLeft < 10 ? `0${secondsLeft}` : secondsLeft
 
-  if (work != previousWork) {
+  if (work != previousWork && previousWork != null) {
     play()
   }
 
