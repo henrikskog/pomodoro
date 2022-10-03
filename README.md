@@ -1,6 +1,6 @@
 # Simple Pomodoro
 
-Live product: (Pomodoro.site)[http://pomodoro.site]
+Live product: [Pomodoro.site](https://pomodoro.site)
 
 Nothing more than a Pomodoro timer that runs continuously with intervals set to **25 minutes work** and **5 minutes rest**. 
 
