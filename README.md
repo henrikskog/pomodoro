@@ -1,3 +1,11 @@
+# Simple Pomodoro
+
+Live product: (Pomodoro.site)[http://pomodoro.site]
+
+Nothing more than a Pomodoro timer that runs continuously with intervals set to **25 minutes work** and **5 minutes rest**. 
+
+The motivation layed in a wish to have an easy way to have syncronized Pomodoro timer. Using this application, anyone can join in at any time and have  their break at the same time as everyone else. 
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
